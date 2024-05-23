@@ -1,2 +1,2 @@
 print("Thiago melhor professor! ")
-print("Aula boa demais! ")
+print("Aula boa demais!")
