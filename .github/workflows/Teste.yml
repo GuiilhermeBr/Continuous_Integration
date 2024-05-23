@@ -1,7 +1,8 @@
 name: Sla
 
 # Caso houver mais de um, colocar na frente em colchetes
-on: [push, pull_request]
+on:
+  pull_request:
 
 # Jobs são ações que seu work flow vai fazer, sendo dividido em steps
 # Ele irá gerar uma máquina virtual para executar o código pra fazer testes e verificar erros
@@ -15,7 +16,7 @@ jobs:
     steps:
     # Vai pegar o código e jogar na maquina virtual
     - name: checkout code
-      uses: action/checkout@v2
+      uses: actions/checkout@v2
 
     # Vai instalar o python na máquina virtual
     - name: instalar python na maquina
