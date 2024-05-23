@@ -1,0 +1,31 @@
+name: Sla
+
+# Caso houver mais de um, colocar na frente em colchetes
+on:
+  pull_request:
+
+# Jobs são ações que seu work flow vai fazer, sendo dividido em steps
+# Ele irá gerar uma máquina virtual para executar o código pra fazer testes e verificar erros
+# A máquina gerará a maquina virtual usando o ubuntu, um sistema operacional
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # Passos a seguir
+    steps:
+    # Vai pegar o código e jogar na maquina virtual
+    - name: checkout code
+      uses: action/checkout@v2
+
+    # Vai instalar o python na máquina virtual
+    - name: instalar python na maquina
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+      
+    # Ações básicas que irá executar
+    - name: Printar mensagem na tela
+      run: |
+        python cu.py
+        echo "teste concluido!"
